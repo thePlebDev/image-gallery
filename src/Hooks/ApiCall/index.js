@@ -1,15 +1,15 @@
 import {useEffect,useState} from 'react'
 
-const useApiGetCall = (requestCaller)=>{
+const useApiGetCall = (requestCaller,extension)=>{
   const [data,setData] = useState('')
   const [errors,setErrors] = useState('')
 
   useEffect(()=>{
-    requestCaller()
+    requestCaller(extension)
     .then(doc=>setData(doc))
     .catch(err=>setErrors(err))
 
-  },[])
+  },[requestCaller,extension])
 
 
   return{

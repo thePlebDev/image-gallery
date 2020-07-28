@@ -1,7 +1,8 @@
 import axios from 'axios'
 
-const axiosCall = async ()=>{
-  let response = await axios.get('https://api.unsplash.com/photos/?client_id=')
+const axiosCall = async (extension)=>{
+
+  let response = await axios.get(`https://api.unsplash.com/${extension}/?client_id=`)
 
     return(response.data)
 }

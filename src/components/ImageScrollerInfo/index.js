@@ -1,22 +1,31 @@
 import React,{useEffect,useState} from 'react'
-import {useSpring, animated} from 'react-spring';
-
-const ImageScrollerInfo =({url,user,description})=>{
-  const [state,setState] = useState(false)
+import styled from 'styled-components';
 
 
+import ImageScrollerModal from '../ImageScrollerModal';
 
-  const handleClick=()=>{
-    setState(!state)
-  }
+const Container = styled.div`
+  position:relative
+`
+
+const ImageScrollerInfo =({url,user,description,loading,setLoading})=>{
+  const[modalState,setModalState] = useState(false)
+
+  // this was used for loading animations.
+  useEffect(()=>{
+    setLoading(true)
+  },[setLoading])
 
   return(
-    <div style={{display:'flex',justifyContent:'center',margin:'15px'}}>
-      <div className='image-container'>
-        <img src={`${url}`} alt={description} onClick={()=>handleClick()}/>
-      </div>
+    <Container onMouseEnter={()=>{setModalState(true)}} onMouseLeave={()=>{setModalState(false)}}>
+        <div >
+          <ImageScrollerModal username={user.username} modalState={modalState}/>
+        </div>
+        <div>
+          <img src={`${url}`} alt={description}/>
+        </div>
 
-    </div>
+    </Container>
   )
 }
 
