@@ -7,5 +7,14 @@ const axiosCall = async (extension)=>{
     return(response.data)
 }
 
+const validate =(value)=>{
+  console.log(value)
+  let errors ={}
+  if(!value){
+    errors.value = 'Please enter a value'
+  }
+  return errors
+}
 
-export {axiosCall}
+
+export {axiosCall,validate}

@@ -4,6 +4,7 @@ import {Switch,Route} from 'react-router-dom';
 
 import ImageScroller from '../ImageScroller';
 import Profile from '../Profile';
+import NavBar from '../NavBar';
 
 const App = ()=>{
   const theme={
@@ -18,6 +19,7 @@ const App = ()=>{
             <ImageScroller />
           </Route>
           <Route exact path='/profile/:username' component={Profile}/>
+          <Route exact path='/navbar' component={NavBar}/>
         </Switch>
       </ThemeProvider>
     </div>
