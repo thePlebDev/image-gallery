@@ -21,7 +21,9 @@ const useForm = (validate)=>{
   useEffect(()=>{
       if(Object.keys(errors).length === 0 && isSubmitting){
         history.push(`/search/${searchState.search}`)
+        setIsSubmitting(false)
       }
+
   },[errors,isSubmitting,searchState.search,history])
 
 

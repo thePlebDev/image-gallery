@@ -41,7 +41,7 @@ const ImageScrollerModal = ({username,modalState})=>{
   return(
     <animated.div style={props}>
       <Container >
-        <Text> User: {username}</Text>
+        <Text>{username}</Text>
         <Link to={`profile/${username}`}>
           <Button>View Profile</Button>
         </Link>
