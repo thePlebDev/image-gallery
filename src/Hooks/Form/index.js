@@ -1,10 +1,11 @@
 import {useState,useEffect} from 'react';
-import { Redirect } from 'react-router-dom';
+import {useHistory } from 'react-router-dom';
 
-const useForm = (validate,apiCall)=>{
+const useForm = (validate)=>{
   const [searchState,setSearchState] = useState({search:''})
   const [errors,setErrors] = useState({})
   const [isSubmitting,setIsSubmitting] = useState(false)
+  let history = useHistory()
 
   const handleSubmit = (e)=>{
     e.preventDefault()
@@ -16,11 +17,12 @@ const useForm = (validate,apiCall)=>{
     setSearchState({[e.target.name]:e.target.value})
   }
 
+
   useEffect(()=>{
       if(Object.keys(errors).length === 0 && isSubmitting){
-          
+        history.push(`/search/${searchState.search}`)
       }
-  },[errors,isSubmitting])
+  },[errors,isSubmitting,searchState.search,history])
 
 
   return{

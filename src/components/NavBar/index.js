@@ -1,7 +1,8 @@
-import React,{useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import useForm from '../../Hooks/Form'
-import {validate,axiosCall} from '../../utils'
+import useForm from '../../Hooks/Form';
+import {validate} from '../../utils';
+import { useHistory } from 'react-router-dom';
 
 const Input = styled.input`
   width:100%;
@@ -41,7 +42,7 @@ const Button = styled.button`
 `
 
 const NavBar =()=>{
-const {handleChange,handleSubmit,searchState,errors} = useForm(validate,axiosCall)
+const {handleChange,handleSubmit,searchState,errors} = useForm(validate,useHistory)
   return(
     <Container>
       <Form onSubmit={(e)=>handleSubmit(e)} >
