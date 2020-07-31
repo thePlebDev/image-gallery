@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const axiosCall = async (extension,query)=>{
 
-  let response = await axios.get(`https://api.unsplash.com/${extension}/?client_id=WM&query=${query}`)
+  let response = await axios.get(`https://api.unsplash.com/${extension}/?client_id=&query=${query}`)
 
     return(response.data)
 }

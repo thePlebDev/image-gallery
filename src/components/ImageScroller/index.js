@@ -8,11 +8,14 @@ import ImageScrollerInfo from '../ImageScrollerInfo'
 
 const Grid = styled.div`
 display:grid;
-grid-template-columns: 1fr auto 1fr;
+grid-template-columns: repeat(auto-fill,minmax(400px,1fr));
+
+
 `
 const GridItem =styled.div`
-grid-column-start:2;
-grid-column-end:3;
+  justify-self:center;
+  align-self:center;
+  padding:5px;
 `
 
 const ImageScroller = ()=>{

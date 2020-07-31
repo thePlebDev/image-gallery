@@ -5,7 +5,9 @@ import styled from 'styled-components';
 import ImageScrollerModal from '../ImageScrollerModal';
 
 const Container = styled.div`
-  position:relative
+  position:relative;
+  display:flex;
+  flex-direction:column;
 `
 
 const ImageScrollerInfo =({url,user,description,loading,setLoading})=>{
@@ -22,7 +24,7 @@ const ImageScrollerInfo =({url,user,description,loading,setLoading})=>{
           <ImageScrollerModal username={user.username} modalState={modalState}/>
         </div>
         <div>
-          <img src={`${url}`} alt={description}/>
+          <img src={`${url}`} alt={description} style={{'object-fit':'cover'}}/>
         </div>
 
     </Container>
